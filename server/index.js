@@ -11,9 +11,7 @@ import jwt from 'jsonwebtoken'
 import userModel from './models/user.js'
 import { getMe } from './controllers/userControllers.js'
 
-
 const app = express()
-
 
 const storage = multer.diskStorage(
     {
@@ -83,7 +81,7 @@ app.use('/graphql', graphqlHTTP((req, res) => {
 /*/
 
 mongoose.connect(
-    'твоя бд'
+    'mongodb+srv://maksimso:iqCHTLCNCkaO0QSN@cluster0.pff0xlz.mongodb.net/blog?retryWrites=true&w=majority'
 ).then(() => console.log('DB Ok'))
 .catch((err) => console.log('DB error ', err))
 
@@ -118,6 +116,8 @@ app.post('/auth/login', Validations.loginValidation, userController.login)
 app.get('/auth/me', checkAuth, userController.getMe)
 app.post('/auth/register', Validations.registerValidation, validationErrors.validationErrors, userController.register)
 
+
+app.post('/send/message', userController.sendMsgSupport)
 
 app.listen(4444, (err) => {
     if(err){

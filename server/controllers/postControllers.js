@@ -5,17 +5,20 @@ import { removeDuplicates } from '../utils/sort.js'
 export const create = async (req, res) => {
     try{
 
+        console.log(req.body)
+
         const doc = new PostSchema({
             title: req.body.title,
             text: req.body.text,
             tags: req.body.tags,
             imageUrl: req.body.imageUrl,
-            user: req.userId
+            user: req.body.userId
         })
 
-        const post = await doc.save()
+        await doc.save()
+        
 
-        res.json(post)
+        return res.json(doc)
     }
     catch(err){
         return res.status(500).json({
@@ -108,9 +111,7 @@ export const getRemove = async (req, res) => {
         })
     }
 
-        return res.json({
-            sucsess: true
-        })
+        return res.json(postId)
     }
     catch(err){
         return res.status(500).json({

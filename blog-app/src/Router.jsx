@@ -1,13 +1,12 @@
 
-
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Register } from './pages/Register'
-import { CreatePost } from './pages/CreatePost'
-import { Home } from './pages/Home'
-import { Login } from './pages/Login'
-import { Profile } from './pages/Profile'
-import { Post } from './pages/Post'
+import { Register } from './pages/Register.tsx'
+import { CreatePost } from './pages/CreatePost.tsx'
+import { Home } from './pages/Home.tsx'
+import { Login } from './pages/Login.tsx'
+import { Profile } from './pages/Profile.tsx'
+import { Post } from './pages/Post.tsx'
 
 
 

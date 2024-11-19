@@ -2,6 +2,20 @@
   "name": "blog-app",
   "version": "0.1.0",
   "private": true,
+"resolve": {
+    "fallback": {
+      "fs": false,
+      "tls": false,
+      "net": false,
+      "path": false,
+      "zlib": false,
+      "http": false,
+      "https": false,
+      "stream": false,
+      "crypto": false,
+      "crypto-browserify": "require.resolve('crypto-browserify')"
+    } 
+  },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
     "@apollo/client": "^3.11.8",
@@ -10,6 +24,10 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.5.5",
+    "@types/react": "^18.3.8",
+    "@types/react-dom": "^18.3.0",
     "antd": "^5.20.0",
     "axios": "^1.7.3",
     "react": "^18.3.1",
@@ -20,7 +38,9 @@
     "react-scripts": "5.0.1",
     "redux": "^5.0.1",
     "redux-toolkit": "^1.1.2",
+    "stream-http": "^3.2.0",
     "tailwindcss": "^3.4.4",
+    "typescript": "^5.6.2",
     "uniqid": "^5.4.0",
     "use-history": "^1.4.1",
     "web-vitals": "^2.1.4"
@@ -50,3 +70,5 @@
     ]
   }
 }
+
+

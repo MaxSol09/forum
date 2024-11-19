@@ -1,1 +1,0 @@
-export const checkValue = (value) => Boolean(value._id)

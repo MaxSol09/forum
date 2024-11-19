@@ -29,7 +29,11 @@ const userSchema = new mongoose.Schema({
         default: 0
     },
     avatarUrl: String,
-    backgroundProfile: String
+    backgroundProfile: String,
+    chat: {
+        type: Array,
+        default: []
+    }
     },
     {
         timestamps: true

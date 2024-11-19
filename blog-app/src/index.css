@@ -44,3 +44,15 @@ img {
   left: 50%; /* Перемещение вправо на 50% от ширины родителя */
   transform: translate(-50%, -50%); /* Смещение на 50% от ширины и высоты самого элемента */
 }
+
+
+.comment-input {
+  &::placeholder {
+    color: rgb(161, 161, 161) !important;
+  }
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  max-height: 0%; 
+  height: 0%;
+} 

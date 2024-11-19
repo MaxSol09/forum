@@ -296,3 +296,57 @@ export const changeText = async (req, res) => {
         })
     }
 }
+
+
+
+export const sendMsgSupport = async (req, res) => {
+    try {
+        // Проверка наличия текста сообщения
+        if (!req.body.text) {
+            return res.status(400).json({
+                message: 'данные не коректны'
+            });
+        }
+
+        // Поиск пользователя по userID
+        const user = await userModel.findById(req.body.userID);
+        if (!user) {
+            return res.status(404).json({
+                message: 'Пользователь не найден'
+            });
+        }
+
+        let msg;
+
+        // Проверка статуса и создание сообщения
+        if (req.body.status === 'admin') {
+            msg = {
+                text: req.body.text,
+                status: 'admin'
+            };
+        } else {
+            msg = {
+                text: req.body.text,
+                status: 'user',
+                fullName: req.body.fullName
+            };
+        }
+
+        // Обновление пользователя и добавление сообщения в чат
+        const send = await userModel.findByIdAndUpdate(
+            req.body.userID,
+            {
+                $push: { 'chat': msg }
+            },
+            { new: true }
+        );
+
+        return res.json(send);
+
+    } catch (err) {
+        // Подробная информация об ошибке
+        return res.status(500).json({
+            message: 'ошибка при послании сообщения в поддержку',
+        });
+    }
+}
